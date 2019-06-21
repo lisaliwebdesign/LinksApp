@@ -30,10 +30,10 @@ export default function createRoutes(store) {
         const renderRoute = loadModule(cb);
 
         importModules.then(([
-          component,
-          navigationReducer,
-          navigationSagas,
-        ]) => {
+                              component,
+                              navigationReducer,
+                              navigationSagas,
+                            ]) => {
           injectReducer('navigationContainer', navigationReducer.default);
           injectSagas('navigationContainer', navigationSagas.default);
           renderRoute(component);
@@ -56,7 +56,27 @@ export default function createRoutes(store) {
 
             importModules.then(([reducer, sagas, component]) => {
               injectReducer('linkListContainer', reducer.default);
-              injectSagas('linkListCpontainer', sagas.default);
+              injectSagas('linkListContainer', sagas.default);
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        }, {
+          path: '/login',
+          name: 'loginContainer',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/LoginContainer/reducer'),
+              System.import('containers/LoginContainer/sagas'),
+              System.import('containers/LoginContainer'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('loginContainer', reducer.default);
+              injectSagas('loginContainer', sagas.default);
               renderRoute(component);
             });
 
@@ -69,8 +89,8 @@ export default function createRoutes(store) {
       name: 'notfound',
       getComponent(nextState, cb) {
         System.import('containers/NotFoundPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
+            .then(loadModule(cb))
+            .catch(errorLoading);
       },
     },
   ];
