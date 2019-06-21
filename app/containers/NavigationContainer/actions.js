@@ -39,6 +39,7 @@ export function selectTopic(topic) {
   };
 }
 
+
 export function toggleDrawer() {
   return {
     type: TOGGLE_DRAWER,

@@ -1,8 +1,8 @@
 /**
- *
- * Drawer
- *
- */
+*
+* Drawer
+*
+*/
 
 import React from 'react';
 
@@ -19,7 +19,7 @@ function Drawer({ items, selectItem, itemLabelAttr, itemKeyAttr, isDrawerOpen })
         selectItem(item);
       }}
     >
-      {item[itemLabelAttr]}
+        {item[itemLabelAttr]}
     </div>
   ));
 

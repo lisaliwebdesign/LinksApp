@@ -1,8 +1,8 @@
 /**
- *
- * AppBar
- *
- */
+*
+* AppBar
+*
+*/
 
 import React from 'react';
 

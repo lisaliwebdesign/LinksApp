@@ -15,7 +15,7 @@ export class NavigationContainer extends React.Component { // eslint-disable-lin
     requestTopics: React.PropTypes.func.isRequired,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestTopics();
   }
 

@@ -25,28 +25,45 @@ export default function createRoutes(store) {
           System.import('containers/HomePage'),
           System.import('containers/NavigationContainer/reducer'),
           System.import('containers/NavigationContainer/sagas'),
-          System.import('containers/LinkListContainer/reducer'),
-          System.import('containers/LinkListContainer/sagas'),
         ]);
 
         const renderRoute = loadModule(cb);
 
         importModules.then(([
-         component,
-         navigationReducer,
-         navigationSagas,
-         linkListReducer,
-         linkListSagas,
-         ]) => {
+          component,
+          navigationReducer,
+          navigationSagas,
+        ]) => {
           injectReducer('navigationContainer', navigationReducer.default);
           injectSagas('navigationContainer', navigationSagas.default);
-          injectReducer('linkListContainer', linkListReducer.default);
-          injectSagas('linkListContainer', linkListSagas.default);
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
       },
+      childRoutes: [
+        {
+          path: '/topics/:topicName',
+          name: 'linkListContainer',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/LinkListContainer/reducer'),
+              System.import('containers/LinkListContainer/sagas'),
+              System.import('containers/LinkListContainer'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('linkListContainer', reducer.default);
+              injectSagas('linkListCpontainer', sagas.default);
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        },
+      ],
     }, {
       path: '*',
       name: 'notfound',

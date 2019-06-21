@@ -1,17 +1,16 @@
-// import { take, call, put, select } from 'redux-saga/effects';
-import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-import { SELECT_TOPIC } from '../NavigationContainer/constants';
+import { takeLatest } from 'redux-saga';
 import { requestLinksSucceeded, requestLinksFailed } from './actions';
+import { REQUEST_LINKS } from './constants';
 
-export function fetchLinksFromServer(topic) {
-  return fetch(`http://localhost:3000/api/topics/${topic.name}/links`)
+function fetchLinksFromServer(topicName) {
+  return fetch(`http://localhost:3000/api/topics/${topicName}/links`)
     .then(response => response.json());
 }
 
 function* fetchLinks(action) {
   try {
-    const links = yield call(fetchLinksFromServer, action.topic);
+    const links = yield call(fetchLinksFromServer, action.topicName);
     yield put(requestLinksSucceeded(links));
   } catch (e) {
     yield put(requestLinksFailed(e.message));
@@ -20,7 +19,7 @@ function* fetchLinks(action) {
 
 // Individual exports for testing
 export function* defaultSaga() {
-  yield* takeLatest(SELECT_TOPIC, fetchLinks);
+  yield* takeLatest(REQUEST_LINKS, fetchLinks);
 }
 
 // All sagas to be loaded

@@ -1,8 +1,8 @@
 /**
- *
- * Navigation
- *
- */
+*
+* Navigation
+*
+*/
 
 import React from 'react';
 
