@@ -6,21 +6,21 @@ function setupDb() {
   const db = low();
 
   db.defaults({ topics: [], links: [] })
-    .value();
+      .value();
 
   const topic1 = {
-    name: 'libraries',
-    description: 'links to useful open source libraries',
+    name: 'BBC News ',
+    description: 'BBC News provides trusted World and UK news as well as local and ... The latest global news, sport, weather and documentaries ... BBC World Service Radio',
   };
 
   const topic2 = {
-    name: 'apps',
+    name: 'Google News',
     description: 'links to new and exciting apps',
   };
 
   const topic3 = {
-    name: 'news',
-    description: 'links to programming related news articles',
+    name: 'Sky News',
+    description: 'Expert comment and analysis on the latest UK news, with headlines from England, Scotland, Northern Ireland and Wales',
   };
 
 
@@ -29,16 +29,16 @@ function setupDb() {
   db.get('topics').push(topic3).value();
 
   db.get('links').push({
-    description: 'The very library we are working with now',
-    url: 'https://github.com/facebook/react',
+    description: 'BBC news home',
+    url: 'https://www.bbc.co.uk/news',
     topicName: topic1.name,
     id: uuid(),
     voteCount: 0,
     voters: [],
   }).value();
   db.get('links').push({
-    description: 'Some old videos',
-    url: 'http://tagtree.io',
+    description: 'BBC news technology',
+    url: 'https://www.bbc.co.uk/news/technology',
     topicName: topic1.name,
     id: uuid(),
     voteCount: 0,
@@ -46,16 +46,16 @@ function setupDb() {
   }).value();
 
   db.get('links').push({
-    description: 'An app to manage your finances',
-    url: 'https://22seven.com',
+    description: 'Google news UK',
+    url: 'https://news.google.com/?hl=en-GB&gl=GB&ceid=GB:en',
     topicName: topic2.name,
     id: uuid(),
     voteCount: 0,
     voters: [],
   }).value();
   db.get('links').push({
-    description: 'Go find some news yourself!',
-    url: 'https://google.com',
+    description: 'Sky news UK',
+    url: 'https://news.sky.com/uk',
     topicName: topic3.name,
     id: uuid(),
     voteCount: 0,
@@ -88,7 +88,7 @@ module.exports = (app) => {
 
   app.get('/api/topics/:name/links', (req, res) => {
     const links = db.get('links').filter((l) =>
-      l.topicName === req.params.name
+        l.topicName === req.params.name
     ).value();
     res.send(links);
   });

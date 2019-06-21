@@ -19,7 +19,7 @@ function* fetchLinks(action) {
 
 // Individual exports for testing
 export function* defaultSaga() {
-  yield* takeLatest(REQUEST_LINKS, fetchLinks);
+  yield takeLatest(REQUEST_LINKS, fetchLinks);
 }
 
 // All sagas to be loaded
