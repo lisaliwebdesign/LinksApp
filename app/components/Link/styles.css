@@ -20,11 +20,16 @@
 
 
 .detailsContainer {
-  display: flex;
-  flex-direction: column;
+   display: block;
+   flex-direction: column;
+   justify-content: center;
+   margin-left: 20px;
+   font-size: 16px;
+ }
+
+.voteContainer {
+  display: block;
   justify-content: center;
-  margin-left: 20px;
-  font-size: 16px;
 }
 
 .description {
@@ -33,6 +38,21 @@
 
 .votingIcon {
   font-size: 40px;
+}
+
+.iconButton {
+  cursor: pointer;
+  margin-right: 0px;
+}
+
+.icon {
+  font-size: 20px;
+  /*color: #77cc6d;*/
+  color: #f6653c;
+}
+
+.thumbIcon{
+  color: #77cc6d;
 }
 
 .linkAnchor {

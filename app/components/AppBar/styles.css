@@ -1,11 +1,12 @@
 .appBar { /* stylelint-disable */
   width: 100%;
   padding: 20px;
-  background-color: #00afcc;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   font-size: 24px;
   display: flex;
   justify-content: space-between;
+  /*border: #000000 solid 1px;*/
 }
 
 
@@ -17,7 +18,7 @@
 
 .icon {
   font-size: 20px;
-  color: #fff;
+  color: #000000;
 }
 
 .icon:hover {
