@@ -18,9 +18,6 @@ npm run generate route
 
 ```
 
-![List screenshot](https://github.com/lisaliwebdesign/LinksApp/blob/master/app/screen/list.png){:width="50%"}
-
 <img src="https://github.com/lisaliwebdesign/LinksApp/blob/master/app/screen/list.png" alt="List screenshot" width="50%"/>
 
-![Login screenshot](https://github.com/lisaliwebdesign/LinksApp/blob/master/app/screen/login.png){:width="50%"}
-
+<img src="https://github.com/lisaliwebdesign/LinksApp/blob/master/app/screen/login.png" alt="login screenshot" width="50%"/>
