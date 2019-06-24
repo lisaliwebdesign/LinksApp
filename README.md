@@ -18,7 +18,7 @@ npm run generate route
 
 ```
 
-![List screenshot](https://github.com/lisaliwebdesign/LinksApp/app/screen/list.png)
+![List screenshot](https://github.com/lisaliwebdesign/LinksApp/blob/master/app/screen/list.png)
 
-![Login screenshot](https://github.com/lisaliwebdesign/LinksApp/app/screen/login.png)
+![Login screenshot](https://github.com/lisaliwebdesign/LinksApp/blob/master/app/screen/login.png)
 
