@@ -22,7 +22,6 @@ function LinkList({ links, topicName, children, startAdd }) {
         <div className={styles.linkList}>
             <h1>{topicName}</h1>
             {linkNodes}
-
             <IconButton
               icon="plus"
               buttonClass={styles.button}
